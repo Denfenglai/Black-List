@@ -4,7 +4,7 @@ export default async function start() {
     const fetchBlacklist = async () => {
         let blacklist = await redis.get('YH:blacklist');
         if (!blacklist) {
-            const response = await fetch('https://gitee.com/DengFengLai-F/black-list/raw/master/Black.json');
+            const response = await fetch('https://gitee.com/DenFengLai/black-list/raw/master/Black.json');
             const blacklistData = await response.json();
             blacklist = JSON.stringify(blacklistData.blacklist);
             await redis.set('YH:blacklist', blacklist, { EX: 200 });
