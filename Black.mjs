@@ -7,7 +7,7 @@ export default async function start() {
             const response = await fetch('https://gitee.com/DengFengLai-F/black-list/raw/master/Black.json');
             const blacklistData = await response.json();
             blacklist = JSON.stringify(blacklistData.blacklist);
-            await redis.set('YH:blacklist', blacklist, { EX: 100 });
+            await redis.set('YH:blacklist', blacklist, { EX: 200 });
         }
         return JSON.parse(blacklist);
     };
